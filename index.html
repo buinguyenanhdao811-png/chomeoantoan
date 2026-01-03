@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Cộng đồng quan tâm & bảo vệ chó mèo</title>
+
+  <!-- Font + icon -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+   body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background:
+    linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+    url("https://images.unsplash.com/photo-1558788353-f76d92427f16");
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 40px;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  padding: 50px 20px;
+  text-align: center;
+  border-radius: 18px;
+  margin-bottom: 40px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.site-header h1 {
+  font-size: 38px;
+  margin: 0;
+  color: #5a2a0c;
+  font-weight: 700;
+}
+
+.site-header p {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #6b3a1e;
+}
+
+/* ===== NOTICE BOX ===== */
+.notice-box {
+  background: #fff3cd;
+  border-left: 6px solid #ff9800;
+  padding: 16px 20px;
+  border-radius: 12px;
+  color: #664d03;
+  margin: 20px 0;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ===== ACCORDION ===== */
+.accordion {
+  max-width: 900px;
+  margin: auto;
+}
+
+.accordion-item {
+  background: #fff;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.accordion-header {
+  padding: 18px 22px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  background: linear-gradient(to right, #fff, #fdf2e9);
+  border-left: 6px solid #ff7a18;
+}
+
+.accordion-header:hover {
+  background: #fff1e6;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.accordion-content {
+  display: none;
+  padding: 0 22px;
+  background: #fafafa;
+}
+
+.accordion-item.active .accordion-content {
+  display: block;
+  padding: 22px;
+}
+
+.accordion-item.active .arrow {
+  transform: rotate(90deg);
+}
+
+/* ===== NEWS ===== */
+.news-item {
+  background: #ffffff;
+  padding: 18px 22px;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  border-left: 5px solid #ff7a18;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.news-item h3 {
+  margin-top: 0;
+  color: #e65100;
+}
+
+.news-item .source {
+  font-size: 13px;
+  color: #777;
+  margin-top: 10px;
+  font-style: italic;
+}
+.tech-form {
+  margin-top: 16px;
+}
+
+.tech-form textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+.tech-form button {
+  margin-top: 10px;
+  background: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.tech-form button:hover {
+  background: #495057;
+}
+
+.icon {
+  display: inline-block;
+  transition: 
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.icon:hover {
+  transform: scale(1.4);
+  opacity: 0;
+}
+
+
+.icon {
+  pointer-events: auto;
+}
+.rating {
+  margin: 10px 0 16px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.rating .star {
+  color: #ccc;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.rating .star:hover {
+  transform: scale(1.2);
+}
+
+.rating .star.active {
+  color: #f5b301;
+}
+
+.rating-text {
+  font-size: 14px;
+  margin-left: 8px;
+  color: #555;
+}
+.badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.badge.unverified {
+  background: #fdecea;
+  color: #b42318;
+  border: 1px solid #f5c2c7;
+}
+
+.badge.verified {
+  background: #e6f4ea;
+  color: #137333;
+  border: 1px solid #b7dfc2;
+}
+
+@media (max-width: 768px) {
+
+  body {
+    padding: 16px;
+  }
+
+  .site-header h1 {
+    font-size: 26px;
+  }
+
+  
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .rating {
+    font-size: 20px;
+  }
+}
+
+.rescue-post {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #bb2d3b;
+}
+.delete-btn {
+  margin-top: 10px;
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 18px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-btn:hover {
+  background: #bb2d3b;
+}
+/* ================= FORM ================= */
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+}
+
+button[type="submit"] {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  background: #ff7a18;
+  color: white;
+  cursor: pointer;
+}
+/* ===== ACCORDION ===== */
+.accordion {
+  max-width: 900px;
+  margin: auto;
+}
+
+.accordion-item {
+  background: #fff;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.accordion-header {
+  padding: 18px 22px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  background: linear-gradient(to right, #fff, #fdf2e9);
+  border-left: 6px solid #ff7a18;
+}
+
+.accordion-header:hover {
+  background: #fff1e6;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.accordion-content {
+  display: none;
+  padding: 0 22px;
+  background: #fafafa;
+}
+
+.accordion-item.active .accordion-content {
+  display: block;
+  padding: 22px;
+}
+
+.accordion-item.active .arrow {
+  transform: rotate(90deg);
+}
+</style>
+  
+</head>
+
+<body>
+
+<header class="site-header">
+  <h1><i class="fa-solid fa-paw"></i> Cộng đồng quan tâm & bảo vệ chó mèo</h1>
+  <p>
+    <i class="fa-solid fa-heart"></i>
+    Kết nối – chia sẻ – bảo vệ những sinh linh bé nhỏ
+  </p>
+</header>
+
+<div class="accordion">
+  <!-- ===== TIN TỨC  ===== -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span><span class="icon">🆕</span>Tin tức </span>
+      <span class="arrow">▶</span>
+    </div>
+	<div class="accordion-content">
+	<section class="news-section">
+
+  <h2>📰 Tin tức pháp luật về chó mèo tại Việt Nam</h2>
+
+  <article class="news-item">
+    <h3>1. Trách nhiệm của người nuôi chó, mèo theo pháp luật Việt Nam</h3>
+    <p>
+      Theo <strong>Luật Chăn nuôi năm 2018</strong>, chó và mèo được xem là vật nuôi
+      và phải được <strong>đối xử nhân đạo</strong>. Chủ nuôi có trách nhiệm
+      chăm sóc, đảm bảo điều kiện sống phù hợp, tiêm phòng bệnh và không được
+      hành hạ, đánh đập vật nuôi.
+    </p>
+    <p class="source">
+      Nguồn: Luật Chăn nuôi 2018 – Quốc hội nước CHXHCN Việt Nam
+    </p>
+  </article>
+
+  <article class="news-item">
+    <h3>2. Xử phạt hành vi thả rông chó, mèo nơi công cộng</h3>
+    <p>
+      Theo các nghị định xử phạt vi phạm hành chính trong lĩnh vực thú y và an toàn
+      công cộng, hành vi <strong>thả rông chó, mèo tại nơi công cộng</strong>,
+      không rọ mõm, không xích giữ hoặc không tiêm phòng dại có thể bị xử phạt tiền.
+      Chủ nuôi cũng phải chịu trách nhiệm nếu vật nuôi gây nguy hiểm cho người khác.
+    </p>
+    <p class="source">
+      Nguồn: Nghị định xử phạt vi phạm hành chính lĩnh vực thú y; Bộ Nông nghiệp &amp; Phát triển Nông thôn
+    </p>
+  </article>
+
+  <article class="news-item">
+    <h3>3. Nghĩa vụ tiêm phòng bệnh dại đối với chó, mèo</h3>
+    <p>
+      Pháp luật Việt Nam quy định việc <strong>tiêm phòng bệnh dại là bắt buộc</strong>
+      đối với chó, mèo. Chủ nuôi phải thực hiện tiêm phòng định kỳ và phối hợp với
+      chính quyền địa phương trong công tác phòng, chống bệnh dại nhằm bảo vệ
+      sức khỏe cộng đồng.
+    </p>
+    <p class="source">
+      Nguồn: Luật Thú y 2015; Cục Thú y – Bộ Nông nghiệp &amp; Phát triển Nông thôn
+    </p>
+  </article>
+
+  <article class="news-item">
+    <h3>4. Trách nhiệm bồi thường thiệt hại khi chó, mèo gây hại</h3>
+    <p>
+      Theo <strong>Bộ luật Dân sự</strong>, chủ sở hữu vật nuôi phải
+      <strong>bồi thường thiệt hại</strong> nếu chó, mèo gây thương tích,
+      thiệt hại tài sản hoặc ảnh hưởng đến sức khỏe của người khác,
+      trừ trường hợp bất khả kháng theo quy định của pháp luật.
+    </p>
+    <p class="source">
+      Nguồn: Bộ luật Dân sự 2015 – Quốc hội nước CHXHCN Việt Nam
+    </p>
+  </article>
+
+  <article class="news-item">
+    <h3>5. Thực trạng xã hội và nhu cầu nâng cao ý thức bảo vệ chó mèo</h3>
+    <p>
+      Mặc dù đã có các quy định pháp luật liên quan đến quản lý và bảo vệ vật nuôi,
+	tình trạng chó mèo bị bỏ rơi, bạo hành hoặc buôn bán trái phép vẫn còn xảy ra.
+      Nhiều tổ chức xã hội và cơ quan chức năng đang kêu gọi nâng cao ý thức cộng đồng,
+      tuân thủ pháp luật và đối xử nhân đạo với động vật.
+    </p>
+    <p class="source">
+      Nguồn: Tổng hợp từ báo chí chính thống và các văn bản pháp luật Việt Nam
+    </p>
+ </article>
+
+</section>
+	</div>
+	</div>
+  <!-- ===== TÌM CHÓ LẠC ===== -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    <span><span class="icon">🔍</span> Thông tin tìm chó lạc</span>
+    <span class="arrow">▶</span>
+  </div>
+
+  <div class="accordion-content">
+
+    <p class="notice-box">
+      ℹ️ Các thông tin tìm chó lạc do cộng đồng gửi sẽ hiển thị bên dưới.
+      Vui lòng kiểm tra kỹ trước khi liên hệ.
+    </p>
+
+    <hr>
+
+    <form id="lostDogForm">
+      <label>Địa chỉ
+        <input type="text" id="address" required>
+      </label><br>
+
+      <label>Mô tả
+        <textarea id="description"></textarea>
+      </label><br>
+
+      <label>Hình ảnh
+        <input type="file" id="image" accept="image/*">
+      </label><br>
+
+      <button type="submit">Gửi</button>
+    </form>
+
+    <h3>📌 Thông tin đã được gửi</h3>
+    <div id="lostDogList"></div>
+
+  </div>
+</div>
+<!-- ===== CẢNH BÁO ===== -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    <span><span class="icon">⚠️</span> Cảnh báo & ghi nhận địa điểm nghi ngờ</span>
+    <span class="arrow">▶</span>
+  </div>
+
+  <div class="accordion-content">
+
+    <p class="notice-box">
+      ⚠️ Các cảnh báo dưới đây do cộng đồng gửi.
+      Vui lòng thận trọng và tự xác minh trước khi hành động.
+    </p>
+
+    <hr>
+
+    <form id="warningForm">
+      <label>Địa chỉ
+        <input type="text" id="warningAddress" required>
+      </label><br>
+
+      <label>Mô tả
+        <textarea id="warningDescription"></textarea>
+      </label><br>
+
+      <label>Hình ảnh
+        <input type="file" id="warningImage" accept="image/*">
+      </label><br>
+
+      <button type="submit">Gửi</button>
+    </form>
+
+    <h3>📌 Cảnh báo đã được gửi</h3>
+    <div id="warningList"></div>
+
+  </div>
+</div>
+<!-- ===== TRẠI CỨU HỘ ===== -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    <span><span class="icon">🏠</span> Trại cứu hộ – từ thiện</span>
+    <span class="arrow">▶</span>
+  </div>
+
+  <div class="accordion-content">
+    <section class="rescue-section">
+
+      <h2>🐾 Trạm cứu hộ & hoạt động từ thiện</h2>
+      <hr>
+
+      <!-- ===== FORM GỬI TRẠI CỨU HỘ ===== -->
+      <h3>➕ Gửi thông tin trại cứu hộ</h3>
+
+      <form id="rescueForm">
+        <label>
+          Tên trại
+          <input type="text" id="rescueName" required>
+        </label><br>
+
+        <label>
+          Khu vực
+          <input type="text" id="rescueLocation" required>
+        </label><br>
+
+        <label>
+          Mô tả ngắn
+          <textarea id="rescueDesc"></textarea>
+        </label><br>
+
+        <label>
+          Link Facebook
+          <input type="url" id="rescueFB">
+        </label><br>
+
+        <button type="submit">Gửi thông tin</button>
+      </form>
+
+      <!-- ===== DANH SÁCH TRẠI DO CỘNG ĐỒNG GỬI ===== -->
+      <h3>📌 Trại cứu hộ do cộng đồng gửi</h3>
+      <div id="communityRescueList"></div>
+
+      <hr>
+
+      <!-- ================= SAIGONTIME ================= -->
+      <article class="rescue-post verified" data-id="saigontime">
+        <h3>Trạm cứu hộ chó mèo SAIGONTIME</h3>
+        <span class="badge verified">✔ Đã xác minh</span>
+
+        <div class="rating" data-target="saigontime">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+          <span class="rating-text">(Chưa có đánh giá)</span>
+        </div>
+
+        <img height="300"
+             src="https://i.postimg.cc/RhYd23y4/IMG-8875.jpg"
+             alt="Trang SAIGONTIME">
+
+        <p class="last-update">
+          🕒 Cập nhật lần cuối: <span id="update-saigontime"></span>
+        </p>
+
+        <p class="location">
+          📍 <strong>Khu vực hoạt động:</strong>
+          Di Linh, Lâm Đồng & TP. Hồ Chí Minh
+        </p>
+
+        <p>
+          <strong>SAIGONTIME</strong> là trạm cứu hộ động vật phi lợi nhuận,
+          hiện đang chăm sóc khoảng <strong>800 bé động vật</strong>.
+        </p>
+
+        <ul>
+          <li><strong>Di Linh:</strong> Farm ~2700m², hơn 750 bé</li>
+          <li><strong>TP.HCM:</strong> Khoảng 60 bé chó mèo</li>
+        </ul>
+
+        <p class="source">
+          🔗
+          <a href="https://www.facebook.com/share/p/1CyjxELUPA/?mibextid=wwXIfr" target="_blank">
+            Trang Facebook SAIGONTIME
+          </a>
+        </p>
+
+        <img height="300"
+             src="https://i.postimg.cc/X3Nm8xQm/IMG-8880.jpg?dl=1"
+			 alt="Ảnh đại diện SAIGONTIME">
+      </article>
+
+      <hr>
+
+      <!-- ================= ANAN ================= -->
+      <article class="rescue-post verified" data-id="anan">
+        <h3>Đội Cứu Hộ Chó Mèo Hà Nội – ANAN</h3>
+        <span class="badge verified">✔ Đã xác minh</span>
+
+        <div class="rating" data-target="anan">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+          <span class="rating-text">(Chưa có đánh giá)</span>
+        </div>
+
+        <img height="300"
+             src="https://i.postimg.cc/0NPZwqqy/IMG-8888.jpg"
+             alt="Trang ANAN">
+
+        <p class="last-update">
+          🕒 Cập nhật lần cuối: <span id="update-anan"></span>
+        </p>
+
+        <p class="location">
+          📍 <strong>Khu vực hoạt động:</strong> Hà Nội (Long Biên)
+        </p>
+
+        <p>
+          <strong>ANAN</strong> là đội cứu hộ chó mèo phi lợi nhuận tại Hà Nội,
+          hiện hoạt động tại cơ sở khoảng <strong>1000m²</strong>.
+        </p>
+
+        <p class="rescue-contact">
+          📍 Ngõ 402 Bắc Cầu, Ngọc Thuỵ, Long Biên, Hà Nội<br>
+          ☎️ 0346 587 328
+        </p>
+
+        <p class="source">
+          🔗
+          <a href="https://www.facebook.com/share/1EquQJdNda/?mibextid=wwXIfr" target="_blank">
+            Trang Facebook ANAN
+          </a>
+        </p>
+
+        <img height="300"
+             src="https://i.postimg.cc/mgR6Q9YD/IMG-8889.jpg"
+             alt="Ảnh đại diện ANAN">
+      </article>
+<!-- ================= ADMIN PANEL ================= -->
+<div id="adminPanel" style="
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+">
+
+  <h2>🔒 Khu quản trị – Duyệt trại cứu hộ</h2>
+  <p style="color:#666;font-size:14px">
+    Chỉ dành cho quản trị viên. Thao tác tại đây ảnh hưởng trực tiếp dữ liệu.
+  </p>
+
+  <table style="width:100%; border-collapse: collapse; margin-top:20px">
+    <thead>
+      <tr style="background:#f5f5f5">
+        <th align="left">Tên trại</th>
+        <th align="left">Khu vực</th>
+        <th align="center">Trạng thái</th>
+        <th align="center">Hành động</th>
+      </tr>
+    </thead>
+    <tbody id="adminRescueTable"></tbody>
+  </table>
+
+</div>
+      <div class="notice-box">
+        ⚠️ Mỗi thông tin được chia sẻ đều xuất phát từ mong muốn giúp đỡ.
+        Tuy nhiên, để đảm bảo an toàn và minh bạch, người đọc nên chủ động
+        xác minh trước khi liên hệ hoặc hỗ trợ.
+      </div>
+
+    </section>
+  </div>
+</div>
+  <!-- ===== CHĂM SÓC ===== -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span><span class="icon">🐾</span> Cơ sở chăm sóc chó mèo uy tín</span>
+      <span class="arrow">▶</span>
+    </div>
+<div class="accordion-content">
+      <p>
+	  <section class="pet-care-section">
+
+  <h2>🐾 Cơ sở chăm sóc & khám chữa bệnh chó mèo uy tín tại TP.HCM</h2>
+
+  <p>
+    Hiện nay, nhu cầu chăm sóc sức khỏe cho thú cưng ngày càng được quan tâm,
+    đặc biệt tại các đô thị lớn như TP.HCM. Tuy nhiên, việc lựa chọn
+    <strong>địa điểm khám bệnh chó mèo uy tín, chất lượng và giá cả hợp lý</strong>
+    không hề dễ dàng khi có hàng trăm phòng khám, bệnh viện thú y hoạt động.
+  </p>
+
+  <p>
+    Nội dung dưới đây tổng hợp các tiêu chí lựa chọn cơ sở thú y,
+    cùng danh sách một số <strong>bệnh viện thú y TP.HCM được nhiều người nuôi thú cưng tham khảo</strong>.
+    Thông tin mang tính chất giới thiệu và tham khảo.
+  </p>
+
+  <hr>
+
+  <h3>1. Tiêu chí lựa chọn địa điểm khám bệnh chó mèo tại TP.HCM</h3>
+
+  <ul>
+    <li>
+      <strong>Trình độ chuyên môn và kinh nghiệm của bác sĩ:</strong>
+      Bác sĩ thú y có bằng cấp rõ ràng, kinh nghiệm thực tế và thái độ tận tâm
+      giúp chẩn đoán chính xác và điều trị hiệu quả cho thú cưng.
+    </li>
+    <li>
+      <strong>Trang thiết bị y tế:</strong>
+      Các cơ sở có máy siêu âm, X-quang, xét nghiệm máu…
+      hỗ trợ quá trình chẩn đoán nhanh và chính xác hơn.
+    </li>
+    <li>
+      <strong>Dịch vụ đa dạng:</strong>
+      Bao gồm khám tổng quát, cấp cứu, phẫu thuật, tiêm phòng,
+      tẩy giun, chăm sóc răng miệng, spa thú cưng…
+    </li>
+    <li>
+      <strong>Thái độ phục vụ:</strong>
+      Nhân viên thân thiện, hướng dẫn rõ ràng giúp chủ nuôi an tâm khi thăm khám.
+    </li>
+    <li>
+      <strong>Giá cả minh bạch:</strong>
+      Bảng giá rõ ràng giúp người nuôi dễ theo dõi và lựa chọn dịch vụ phù hợp.
+    </li>
+  </ul>
+
+  <hr>
+
+  <h3>2. Một số bệnh viện thú y TP.HCM được nhiều người tin tưởng</h3>
+
+  <h4>Bệnh viện thú y Procare</h4>
+  <img height="300"  src="https://i.postimg.cc/vm2Gc2tb/IMG-8881.jpg" alt="Hình ảnh địa chỉ" >
+  <p>
+    Procare là một trong những bệnh viện thú y hoạt động lâu năm tại TP.HCM,
+    nổi bật với đội ngũ bác sĩ giàu kinh nghiệm và hệ thống dịch vụ chăm sóc thú cưng toàn diện.
+    Không gian được phân chia rõ ràng giữa khu khám, điều trị, lưu trú và petshop.
+  </p>
+  <p>
+    <strong>Địa chỉ:</strong> 98B–98C Phan Đăng Lưu, P.3, Q. Phú Nhuận, TP.HCM
+	
+  </p>
+  <h4>Bệnh viện thú y Trường Đại học Nông Lâm</h4>
+  <img height="300" src="https://i.postimg.cc/TYfBvqnN/IMG-8882.jpg" alt="Hình ảnh địa chỉ" >
+  <p>
+    Bệnh viện thú y thuộc Trường Đại học Nông Lâm TP.HCM có thế mạnh trong
+    chẩn đoán và điều trị đa dạng loài động vật, từ thú cưng đến thú ngoại lai.
+    Đội ngũ bác sĩ thường xuyên trao đổi chuyên môn và tiếp nhận các ca bệnh phức tạp.
+  </p>
+  <p>
+	  
+	  <strong>Địa chỉ:</strong> Phòng P216, Nhà Phượng Vỹ,
+    Trường ĐH Nông Lâm, Khu phố 6, P. Linh Trung, TP. Thủ Đức, TP.HCM
+  </p>
+
+  <h4>Hệ thống phòng khám thú y Pet Health Centre</h4>
+  <p>
+    Pet Health Centre là hệ thống phòng khám thú y có nhiều cơ sở tại TP.HCM
+    và khu vực lân cận. Đơn vị này được biết đến với dịch vụ khám định kỳ,
+    chuyên khoa nội, sản khoa và cấp cứu 24/7 cho chó mèo.
+  </p>
+
+  <h4>Bệnh viện thú y Pet Joy</h4>
+  <p>
+    Pet Joy sở hữu nhiều cơ sở tại TP.HCM với hệ thống trang thiết bị y tế hiện đại.
+    Bệnh viện cung cấp các dịch vụ từ khám chữa bệnh, cấp cứu, điều trị tại nhà
+    đến chăm sóc và grooming thú cưng.
+  </p>
+
+  <h4>Bệnh viện thú y Petpro</h4>
+  <p>
+    PETPRO là một trong những hệ thống bệnh viện thú y tư nhân lâu đời tại Việt Nam,
+    chuyên chăm sóc thú cưng với nhiều chuyên khoa như nội, ngoại, nhiễm,
+    chẩn đoán hình ảnh và xét nghiệm.
+  </p>
+
+  <hr>
+
+  <h3>3. Lưu ý khi đưa thú cưng đi khám tại TP.HCM</h3>
+
+  <ul>
+    <li>Chuẩn bị hồ sơ bệnh án hoặc lịch sử tiêm phòng (nếu có).</li>
+    <li>Nên đặt lịch trước để tiết kiệm thời gian chờ đợi.</li>
+    <li>Không cho thú cưng ăn quá no trước khi khám.</li>
+    <li>Sử dụng dây dắt hoặc lồng vận chuyển khi đưa thú cưng ra ngoài.</li>
+    <li>Lắng nghe và ghi chú lại hướng dẫn từ bác sĩ thú y.</li>
+  </ul>
+
+  <p>
+    Việc lựa chọn đúng cơ sở khám chữa bệnh sẽ giúp thú cưng được chăm sóc tốt hơn
+    và giúp chủ nuôi an tâm trong quá trình điều trị lâu dài.
+  </p>
+
+  <div class="notice-box">
+  ⚠️ Danh sách mang tính tham khảo, người nuôi nên tự tìm hiểu
+  trước khi sử dụng dịch vụ.
+</div>
+
+</section></p>
+    </div>
+  </div>
+
+</div>
+<!-- ===== LIÊN HỆ KỸ THUẬT ===== -->
+<footer class="tech-contact">
+  <div class="tech-box">
+    <h3>🔧 Liên hệ kỹ thuật</h3>
+    <p>
+      Nếu bạn gặp lỗi hiển thị, lỗi gửi thông tin hoặc vấn đề kỹ thuật khi sử dụng website,
+      vui lòng liên hệ theo thông tin bên dưới:
+    </p>
+<form class="tech-form">
+  <label>
+    Mô tả lỗi bạn gặp:
+    <textarea placeholder="Ví dụ: không gửi được thông tin, trang bị đứng..."></textarea>
+  </label>
+
+  <button type="button">Gửi phản hồi</button>
+</form>
+    <p>
+      📧 <strong>Email:</strong>
+      <a href="mailto:Buinguyenanhdao811@gmail.com">Buinguyenanhdao811@gmail.com</a>
+    </p>
+
+    <p>
+      📞 <strong>Điện thoại:</strong>
+      <a href="tel:0931135722">0931135722</a>
+    </p>
+
+    <p class="note">
+      <em>
+        Lưu ý: Kênh liên hệ này chỉ dùng cho hỗ trợ kỹ thuật website,
+        không tiếp nhận thông tin cứu hộ hay tìm chó lạc.
+      </em>
+    </p>
+  </div>
+</footer>
+
+<!-- các script khác ở trên -->
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* =========================
+     1. ACCORDION
+  ========================= */
+  document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", () => {
+      header.parentElement.classList.toggle("active");
+    });
+  });
+
+  /* =========================
+     2. RATING (LOCALSTORAGE)
+  ========================= */
+  document.querySelectorAll(".rating").forEach(rating => {
+    const id = rating.dataset.target;
+    const stars = rating.querySelectorAll(".star");
+    const text = rating.querySelector(".rating-text");
+
+    const saved = localStorage.getItem("rating_" + id);
+    if (saved) {
+      stars.forEach(s => s.classList.toggle("active", s.dataset.value <= saved));
+      text.textContent = `Đã đánh giá ${saved}/5 sao`;
+    }
+
+    stars.forEach(star => {
+      star.addEventListener("click", () => {
+        const value = star.dataset.value;
+        localStorage.setItem("rating_" + id, value);
+        stars.forEach(s => s.classList.toggle("active", s.dataset.value <= value));
+        text.textContent = `Đã đánh giá ${value}/5 sao`;
+      });
+    });
+  });
+
+  /* =========================
+     3. TÌM CHÓ LẠC
+  ========================= */
+  const LOST_KEY = "lostDogReports";
+  const lostForm = document.getElementById("lostDogForm");
+  const lostList = document.getElementById("lostDogList");
+  let lostData = JSON.parse(localStorage.getItem(LOST_KEY)) || [];
+
+  lostData.forEach(renderLost);
+
+  lostForm?.addEventListener("submit", e => {
+    e.preventDefault();
+    const item = {
+      id: Date.now(),
+      address: address.value.trim(),
+      description: description.value.trim(),
+      time: new Date().toLocaleString()
+    };
+    lostData.unshift(item);
+    localStorage.setItem(LOST_KEY, JSON.stringify(lostData));
+    renderLost(item);
+    lostForm.reset();
+  });
+
+  function renderLost(item) {
+    const div = document.createElement("div");
+    div.className = "rescue-post";
+    div.dataset.id = item.id;
+    div.innerHTML = `
+      <p><strong>📍 Địa chỉ:</strong> ${item.address}</p>
+      <p>${item.description || "Không có mô tả"}</p>
+      <small>🕒 ${item.time}</small><br>
+      <button class="delete-btn">🗑 Xóa</button>
+    `;
+    lostList.prepend(div);
+  }
+
+  /* =========================
+     4. CẢNH BÁO – GIỐNG TÌM CHÓ LẠC
+  ========================= */
+  const WARNING_KEY = "warningReports";
+  const warningForm = document.getElementById("warningForm");
+  const warningList = document.getElementById("warningList");
+  let warningData = JSON.parse(localStorage.getItem(WARNING_KEY)) || [];
+
+  warningData.forEach(renderWarning);
+
+  warningForm?.addEventListener("submit", e => {
+    e.preventDefault();
+    const item = {
+      id: Date.now(),
+      address: warningAddress.value.trim(),
+      description: warningDescription.value.trim(),
+      time: new Date().toLocaleString()
+    };
+    warningData.unshift(item);
+    localStorage.setItem(WARNING_KEY, JSON.stringify(warningData));
+    renderWarning(item);
+    warningForm.reset();
+  });
+
+  function renderWarning(item) {
+    const div = document.createElement("div");
+    div.className = "rescue-post";
+    div.dataset.id = item.id;
+    div.innerHTML = `
+      <p><strong>⚠️ Địa chỉ nghi ngờ:</strong> ${item.address}</p>
+      <p>${item.description || "Không có mô tả"}</p>
+      <small>🕒 ${item.time}</small><br>
+      <button class="delete-btn">🗑 Xóa</button>
+    `;
+    warningList.prepend(div);
+  }
+
+  /* =========================
+     5. TRẠI CỨU HỘ CỘNG ĐỒNG
+  ========================= */
+  const RESCUE_KEY = "communityRescues";
+  const rescueForm = document.getElementById("rescueForm");
+  const rescueList = document.getElementById("communityRescueList");
+  let rescueData = JSON.parse(localStorage.getItem(RESCUE_KEY)) || [];
+
+  rescueData.forEach(renderRescue);
+
+  rescueForm?.addEventListener("submit", e => {
+    e.preventDefault();
+    const item = {
+      id: Date.now(),
+      name: rescueName.value.trim(),
+      location: rescueLocation.value.trim(),
+      desc: rescueDesc.value.trim(),
+      fb: rescueFB.value.trim(),
+      verified: false,
+      time: new Date().toLocaleString()
+    };
+    rescueData.unshift(item);
+    localStorage.setItem(RESCUE_KEY, JSON.stringify(rescueData));
+    renderRescue(item);
+    rescueForm.reset();
+  });
+
+  function renderRescue(item) {
+    const div = document.createElement("div");
+    div.className = "rescue-post";
+    div.dataset.id = item.id;
+    div.innerHTML = `
+      <h4>${item.name}</h4>
+      <span class="badge ${item.verified ? "verified" : "unverified"}">
+        ${item.verified ? "✔ Đã xác minh" : "⚠ Chưa xác minh"}
+      </span>
+      <p>📍 ${item.location}</p>
+      <p>${item.desc || "Không có mô tả"}</p>
+      ${item.fb ? `<a href="${item.fb}" target="_blank">Facebook</a>` : ""}
+      <div>
+        <small>🕒 ${item.time}</small><br>
+        <button class="delete-btn">🗑 Xóa</button>
+      </div>
+    `;
+    rescueList.prepend(div);
+  }
+
+  /* =========================
+     6. XÓA CHUNG (CHO MỌI MỤC)
+  ========================= */
+  document.addEventListener("click", e => {
+    if (!e.target.classList.contains("delete-btn")) return;
+    if (!confirm("Xóa vĩnh viễn mục này?")) return;
+
+    const post = e.target.closest(".rescue-post");
+    if (!post) return;
+
+    const id = post.dataset.id;
+
+    lostData = lostData.filter(i => i.id != id);
+    warningData = warningData.filter(i => i.id != id);
+    rescueData = rescueData.filter(i => i.id != id);
+
+    localStorage.setItem(LOST_KEY, JSON.stringify(lostData));
+    localStorage.setItem(WARNING_KEY, JSON.stringify(warningData));
+    localStorage.setItem(RESCUE_KEY, JSON.stringify(rescueData));
+
+    post.remove();
+  });
+
+});
+</script>
+
+</body>
+</html>
