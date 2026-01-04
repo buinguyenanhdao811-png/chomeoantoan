@@ -30,6 +30,25 @@
   margin-bottom: 40px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
+.sub-header {
+  padding: 14px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #f7f7f7;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.sub-content {
+  display: none;
+  padding: 12px 18px;
+  background: #fafafa;
+  border-radius: 10px;
+}
+
+.sub-item.active .sub-content {
+  display: block;
+}
 
 .site-header h1 {
   font-size: 38px;
@@ -94,7 +113,28 @@
   padding: 0 22px;
   background: #fafafa;
 }
+.shop-card {
+  display: flex;
+  gap: 14px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
+.shop-card img {
+  width: 90px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.shop-card a {
+  color: #ff7a18;
+  font-weight: 600;
+  text-decoration: none;
+}
 .accordion-item.active .accordion-content {
   display: block;
   padding: 22px;
@@ -336,6 +376,77 @@ button[type="submit"] {
 .accordion-item.active .arrow {
   transform: rotate(90deg);
 }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip-card:hover .flip-inner,
+.flip-card:active .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.flip-front {
+  background: #fff;
+}
+
+.flip-front img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.flip-front .title {
+  padding: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+}
+
+.flip-back {
+  background: #ff7a18;
+  color: #fff;
+  transform: rotateY(180deg);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.flip-back a {
+  background: #fff;
+  color: #ff7a18;
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+}
+
 </style>
   
 </head>
@@ -430,6 +541,146 @@ button[type="submit"] {
 </section>
 	</div>
 	</div>
+	
+	<!-- ===== Góc Nhìn – Nhận Thức & Nhân Văn ===== -->
+	<section class="insight-section">
+	<div class="accordion-item">
+    <div class="accordion-header">
+      <span><span class="icon">🧠</span>Góc Nhìn – Nhận Thức & Nhân Văn </span>
+      <span class="arrow">▶</span>
+    </div>
+	<div class="accordion-content">
+	<div class="sub-accordion">
+
+    <div class="sub-item">
+      <div class="sub-header">A. Xã hội & Nhận thức</div>
+      <div class="sub-content">
+	  <div class="sub-item">
+    
+ 
+
+      <article class="insight-article">
+        <h3>Nhiều người trên mạng xã hội đang thực sự gặp vấn đề gì vậy?</h3>
+
+        <img src="https://i.postimg.cc/prRWYXRj/IMG-8942.jpg" alt="Nhận thức xã hội">
+
+        <p>
+          Một bài viết nói về việc yêu thương chó mèo – vốn chỉ nhằm nhắc rằng khi con người còn biết
+          yêu thương một sinh linh khác, họ vẫn giữ được phần tử tế trong mình.
+          Không yêu thương không đồng nghĩa là xấu, nhưng biết yêu thương cho thấy khả năng tự soi chiếu bản thân.
+        </p>
+
+        <p>
+          Tuy nhiên, thật khó hiểu khi từ một nội dung như vậy lại xuất hiện hàng loạt bình luận lạc đề,
+          công kích cá nhân, khoe chuyện ăn thịt chó và mỉa mai theo cách bệnh hoạn.
+          Đáng lo hơn là những lập luận lệch lạc, nguy hiểm nếu rơi vào nhận thức của trẻ em
+          hoặc những người đang khủng hoảng tâm lý.
+        </p>
+
+        <p>
+          Tranh luận là quyền của mỗi người, nhưng tranh luận đúng chỗ, đúng cách và với tư cách con người
+          là điều tối thiểu để xã hội không trượt dài vào sự vô cảm.
+        </p>
+
+        <p class="article-note">
+          Quan điểm cá nhân: đồng tình ở mức trung dung – tôn trọng sự khác biệt nhưng không chấp nhận
+          việc cố tình gây hấn và thiếu tôn trọng.
+        </p>
+
+        <p class="article-source">
+          Nguồn: <strong>Moon’s House</strong>
+        </p>
+      </article>
+
+   
+ 
+	  
+        <!-- Card bài viết -->
+      </div>
+    </div>
+
+    <div class="sub-item">
+      <div class="sub-header">B. Thế giới & Mô hình nhân văn</div>
+      <div class="sub-content">
+	  <article class="insight-article">
+        <h3>🇳🇱 Hà Lan – Một quốc gia gần như không còn chó hoang</h3>
+
+        <img src="https://i.postimg.cc/wBNgCsBL/IMG-8943.jpg" alt="Hà Lan và phúc lợi động vật">
+
+        <p>
+          Hà Lan từng đối mặt với tình trạng chó bị bỏ rơi tràn lan.
+          Thay vì phớt lờ, quốc gia này chọn cách tiếp cận dựa trên lòng nhân ái,
+		  kết hợp luật pháp nghiêm ngặt và chính sách khuyến khích nhận nuôi.
+        </p>
+
+        <p>
+          Các biện pháp như lực lượng cảnh sát động vật, chương trình triệt sản – tiêm chủng (CNVR),
+          cùng chính sách thuế khuyến khích nhận nuôi đã giúp số lượng chó hoang giảm mạnh,
+          đến mức gần như không còn tồn tại.
+        </p>
+
+        <p>
+          Thành công của Hà Lan cho thấy: khi một xã hội quyết định rằng mỗi sinh linh đều quan trọng,
+          thay đổi tích cực là hoàn toàn khả thi.
+        </p>
+
+        <p class="article-note">
+          Góc nhìn cá nhân: Đây là mô hình đáng tham khảo, không phải để sao chép máy móc,
+          mà để suy nghĩ về cách xây dựng chính sách nhân văn phù hợp với từng quốc gia.
+        </p>
+
+        <p class="article-source">
+          Bài: <strong>Metta | Thuần Chay Việt Nam</strong> – Ảnh: Pawsmint
+        </p>
+      </article>
+        <!-- Card bài viết -->
+      </div>
+    </div>
+
+    <div class="sub-item">
+      <div class="sub-header">C. Đề xuất & Góc nhìn chính sách</div>
+      <div class="sub-content">
+	   <article class="insight-article">
+        <h3>🇻🇳 Đề xuất tham khảo về bảo vệ động vật nuôi tại Việt Nam</h3>
+
+        <img src="https://i.postimg.cc/x86XXbMk/IMG-8945.jpg" alt="Bảo vệ động vật">
+
+        <p>
+          Nội dung dưới đây là các đề xuất mang tính tham khảo, nhằm bổ sung góc nhìn
+          cho các quy định hiện hành về phúc lợi động vật tại Việt Nam.
+          Đây không phải là dự luật chính thức.
+        </p>
+
+        <ul>
+          <li>Nghiêm cấm bạo hành, buôn bán, giết mổ chó mèo.</li>
+          <li>Tăng nặng hình phạt với các hành vi ngược đãi, trộm chó mèo.</li>
+          <li>Khuyến khích nhận nuôi, hỗ trợ triệt sản và tiêm chủng.</li>
+          <li>Hạn chế trại sinh sản công nghiệp và puppy mill.</li>
+        </ul>
+
+        <p>
+          Việc xây dựng một khung pháp lý rõ ràng không chỉ bảo vệ động vật,
+          mà còn phản ánh mức độ văn minh và trách nhiệm xã hội của con người.
+        </p>
+
+        <p class="article-note">
+          Góc nhìn cá nhân: Chính sách nên được triển khai theo lộ trình,
+          ưu tiên giáo dục – răn đe – sau đó mới tăng dần mức xử phạt.
+        </p>
+
+        <p class="article-source">
+          Nguồn: <strong>Thuần Chay Việt Nam</strong>
+        </p>
+      </article>
+        <!-- Card bài viết -->
+      </div>
+    </div>
+
+  </div>
+	
+	
+	</div>
+	</section>
   <!-- ===== TÌM CHÓ LẠC ===== -->
 <div class="accordion-item">
   <div class="accordion-header">
@@ -685,6 +936,131 @@ button[type="submit"] {
     </section>
   </div>
 </div>
+<!-- ===== Tiktoker===== -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    <span><span class="icon">🐶🐱 </span> TikToker về Chó Mèo</span>
+    <span class="arrow">▶</span>
+  </div>
+<div class="accordion-content">
+<p>🐶 TikToker về Chó</p>
+  <div class="card-grid tiktok">
+ <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="https://i.postimg.cc/rp1D2Hnd/IMG-8946.jpg">
+        <div class="title">HanniPet</div>
+      </div>
+      <div class="flip-back">
+        <p>Kiến thức khoa học về sức khỏe, hành vi,huấn luyện chó mèo.</p>
+        <a href="https://www.tiktok.com/@tuitienpet?_r=1&_t=ZS-92l7JvCTjYi" target="_blank">Xem kênh</a>
+      </div>
+    </div>
+ </div>
+<div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="https://i.postimg.cc/254WGyn8/IMG-8927.jpg">
+        <div class="title">HanniPet</div>
+      </div>
+      <div class="flip-back">
+        <p>Thông tin sức khỏe & chăm sóc thú cưng.</p>
+        <a href="https://www.tiktok.com/@hanipet97" target="_blank">Xem kênh</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="https://i.postimg.cc/sx0GxhRy/IMG-8930.jpg">
+        <div class="title">Tâm Chó Cỏ</div>
+      </div>
+      <div class="flip-back">
+        <p>Chữa lành với đàn chó cỏ và cuộc sống quê.</p>
+        <a href="https://www.tiktok.com/@tam23021997" target="_blank">Xem kênh</a>
+      </div>
+    </div>
+  </div>
+<div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="https://i.postimg.cc/Wz4Sxg7Y/IMG-8932.jpg">
+        <div class="title">Sân Nhà Nhiều Chó </div>
+      </div>
+      <div class="flip-back">
+        <p>Kênh cứu hộ – tìm nhà cho thú bị bỏ rơi.</p>
+        <a href="https://www.tiktok.com/@sannhanhieucho.com" target="_blank">Xem kênh</a>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<div>
+<p>🐱 TikToker về Mèo</p>
+<div class="card-grid">
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="https://i.postimg.cc/htQZS8R0/IMG-8935.jpg">
+        <div class="title">Vitamin Mèo</div>
+      </div>
+      <div class="flip-back">
+        <p>Kể chuyện mèo lồng tiếng hài hước.</p>
+        <a href="https://www.tiktok.com/@dntminh" target="_blank">Xem kênh</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="https://i.postimg.cc/tTpBtLZB/IMG-8933.jpg">
+        <div class="title">Meowisthebest</div>
+      </div>
+      <div class="flip-back">
+        <p>Đội quân mèo đông đúc, dễ thương.</p>
+        <a href="https://www.tiktok.com/@meow_is_the_best_shop" target="_blank">Xem kênh</a>
+      </div>
+    </div>
+  </div>
+  
+ <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="https://i.postimg.cc/wjJKWYMm/IMG-8929.jpg">
+        <div class="title">Nuôi Mèo Thông Minh</div>
+      </div>
+      <div class="flip-back">
+        <p>kiến thức chuyên sâu về hành vi và cách nuôi dạy chó mèo đúng cách.</p>
+        <a href="https://www.tiktok.com/@nuoimeothongminh" target="_blank">Xem kênh</a>
+      </div>
+    </div>
+  </div>
+  
+<div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="https://i.postimg.cc/hGz08Kts/IMG-8931.jpg">
+        <div class="title">Mèo 6 Chân</div>
+      </div>
+      <div class="flip-back">
+        <p>Kể chuyện thú cưng với phong cách hóm hỉnh.</p>
+        <a href="https://www.tiktok.com/@tiamo_lu" target="_blank">Xem kênh</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+    </div>
+
+
+
+</div>
   <!-- ===== CHĂM SÓC ===== -->
   <div class="accordion-item">
     <div class="accordion-header">
@@ -814,7 +1190,56 @@ button[type="submit"] {
 </section></p>
     </div>
   </div>
+<!-- ===== SHOP  ===== -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span><span class="icon">🛒</span>Shop chó mèo uy tín  </span>
+      <span class="arrow">▶</span>
+    </div>
+	<div class="accordion-content">
+	<section class="news-section">
+	<div class="shop-card">
+  <img src="https://i.postimg.cc/vBDDxm81/IMG-8936.jpg">
+  <div>
+    <strong>Pet Mart</strong>
+    <p>Chuỗi lớn, kiểm định nghiêm ngặt.</p>
+    <a href="https://vn.shp.ee/thYiHV3" target="_blank">Xem shop</a>
+  </div>
+</div>
 
+<div class="shop-card">
+  <img src="https://i.postimg.cc/JtChFcNd/IMG-8937.jpg">
+  <div>
+    <strong>Paddy Pet Shop</strong>
+    <p>Thức ăn nhập khẩu, tư vấn chuyên sâu.</p>
+    <a href="https://vn.shp.ee/j8E1xRB" target="_blank">Xem shop</a>
+  </div>
+</div>
+	<div class="shop-card">
+  <img src="https://i.postimg.cc/YqBQ4TZj/IMG-8938.jpg">
+  <div>
+    <strong>Kin Neko Pet Shop</strong>
+    <p>Được cộng đồng yêu mèo tại TP.HCM đánh giá cao, giao hàng nhanh.</p>
+    <a href="https://share.google/MkMWYU91NAX24ANKO" target="_blank">Xem shop</a>
+  </div>
+</div>
+	<div class="shop-card">
+  <img src="https://i.postimg.cc/kXLxsQ3b/IMG-8941.jpg">
+  <div>
+    <strong>BMPET</strong>
+    <p>Nhà phân phối chính hãng nhiều thương hiệu lớn.</p>
+    <a href="https://bmpet.vn" target="_blank">Xem shop</a>
+  </div>
+</div>
+	
+	
+	
+	
+	</section>
+	 <div class="notice-box">
+        ⚠️ Chỉ mang tính tham khảo, không quảng cáo.
+      </div>
+</div>
 </div>
 <!-- ===== LIÊN HỆ KỸ THUẬT ===== -->
 <footer class="tech-contact">
@@ -832,7 +1257,13 @@ button[type="submit"] {
 
   <button type="button">Gửi phản hồi</button>
 </form>
-    <p>
+    <p>Chó mèo không chỉ là vật nuôi, mà còn là những sinh linh biết cảm nhận, gắn bó và yêu thương con người.<hr>
+
+Website này được tạo ra nhằm <b>lan tỏa năng lượng tích cực, lòng trắc ẩn và trách nhiệm</b> trong việc <b>nuôi dưỡng, bảo vệ chó mèo</b>; đồng thời góp phần<b> nâng cao nhận thức</b> về các <b>vấn đề như bỏ rơi, bạo hành và buôn bán chó mèo trái phép</b> – đặc biệt là những hình thức mua bán phục vụ mục đích <b>không nhân đạo</b>.<hr>
+
+Mỗi thông tin được chia sẻ đều hướng đến một mục tiêu chung:
+<b>ít tổn thương hơn – nhiều yêu thương</b> hơn.</P
+	<p>
       📧 <strong>Email:</strong>
       <a href="mailto:Buinguyenanhdao811@gmail.com">Buinguyenanhdao811@gmail.com</a>
     </p>
@@ -854,6 +1285,11 @@ button[type="submit"] {
 <!-- các script khác ở trên -->
 
 <script>
+document.querySelectorAll(".sub-header").forEach(h => {
+  h.addEventListener("click", () => {
+    h.parentElement.classList.toggle("active");
+  });
+});
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================
