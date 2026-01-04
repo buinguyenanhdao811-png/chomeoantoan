@@ -791,6 +791,9 @@ button[type="submit"] {
           Link Facebook
           <input type="url" id="rescueFB">
         </label><br>
+		<label>Hình ảnh
+        <input type="file" id="rescueImage" accept="image/*">
+      </label><br>
 
         <button type="submit">Gửi thông tin</button>
       </form>
@@ -1283,25 +1286,139 @@ Mỗi thông tin được chia sẻ đều hướng đến một mục tiêu chu
 </footer>
 
 <!-- các script khác ở trên -->
-
 <script>
-document.querySelectorAll(".sub-header").forEach(h => {
-  h.addEventListener("click", () => {
-    h.parentElement.classList.toggle("active");
-  });
-});
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================
-     1. ACCORDION
+     0. ACCORDION
   ========================= */
   document.querySelectorAll(".accordion-header").forEach(header => {
     header.addEventListener("click", () => {
       header.parentElement.classList.toggle("active");
     });
   });
+  /* =========================
+     1. KHAI BÁO INPUT (RẤT QUAN TRỌNG)
+  ========================= */
+  const address = document.getElementById("address");
+  const description = document.getElementById("description");
+  const image = document.getElementById("image");
+
+  const warningAddress = document.getElementById("warningAddress");
+  const warningDescription = document.getElementById("warningDescription");
+  const warningImage = document.getElementById("warningImage");
+
+  const rescueName = document.getElementById("rescueName");
+  const rescueLocation = document.getElementById("rescueLocation");
+  const rescueDesc = document.getElementById("rescueDesc");
+  const rescueFB = document.getElementById("rescueFB");
+/* =========================
+    góc nhìn
+  ========================= */
+document.querySelectorAll(".sub-header").forEach(h => {
+  h.addEventListener("click", () => {
+    h.parentElement.classList.toggle("active");
+  });
+});
 
   /* =========================
+     2. HÀM ĐỌC ẢNH → BASE64
+  ========================= */
+  function readImage(file, callback) {
+    if (!file) return callback(null);
+    const reader = new FileReader();
+    reader.onload = e => callback(e.target.result);
+    reader.readAsDataURL(file);
+  }
+
+  /* =========================
+     3. TÌM CHÓ LẠC
+  ========================= */
+  const LOST_KEY = "lostDogReports";
+  const lostForm = document.getElementById("lostDogForm");
+  const lostList = document.getElementById("lostDogList");
+  let lostData = JSON.parse(localStorage.getItem(LOST_KEY)) || [];
+
+  lostData.forEach(renderLost);
+
+  lostForm?.addEventListener("submit", e => {
+    e.preventDefault();
+
+    readImage(image.files[0], imgData => {
+      const item = {
+        id: Date.now(),
+        address: address.value.trim(),
+        description: description.value.trim(),
+        image: imgData,
+        time: new Date().toLocaleString()
+      };
+
+      lostData.unshift(item);
+      localStorage.setItem(LOST_KEY, JSON.stringify(lostData));
+      renderLost(item);
+      lostForm.reset();
+    });
+  });
+
+  function renderLost(item) {
+    const div = document.createElement("div");
+    div.className = "rescue-post";
+    div.dataset.id = item.id;
+
+    div.innerHTML = `
+      <p><strong>📍 Địa chỉ:</strong> ${item.address}</p>
+      <p>${item.description || "Không có mô tả"}</p>
+      ${item.image ? `<img src="${item.image}" style="max-width:100%;border-radius:10px;margin:8px 0">` : ""}
+      <small>🕒 ${item.time}</small><br>
+      <button class="delete-btn">🗑 Xóa</button>
+    `;
+    lostList.prepend(div);
+  }
+
+  /* =========================
+     4. CẢNH BÁO
+  ========================= */
+  const WARNING_KEY = "warningReports";
+  const warningForm = document.getElementById("warningForm");
+  const warningList = document.getElementById("warningList");
+  let warningData = JSON.parse(localStorage.getItem(WARNING_KEY)) || [];
+
+  warningData.forEach(renderWarning);
+
+  warningForm?.addEventListener("submit", e => {
+    e.preventDefault();
+
+    readImage(warningImage.files[0], imgData => {
+      const item = {
+        id: Date.now(),
+        address: warningAddress.value.trim(),
+        description: warningDescription.value.trim(),
+        image: imgData,
+        time: new Date().toLocaleString()
+      };
+
+      warningData.unshift(item);
+      localStorage.setItem(WARNING_KEY, JSON.stringify(warningData));
+      renderWarning(item);
+      warningForm.reset();
+    });
+  });
+
+  function renderWarning(item) {
+    const div = document.createElement("div");
+    div.className = "rescue-post";
+    div.dataset.id = item.id;
+
+    div.innerHTML = `
+      <p><strong>⚠️ Địa điểm nghi ngờ:</strong> ${item.address}</p>
+      <p>${item.description || "Không có mô tả"}</p>
+      ${item.image ? `<img src="${item.image}" style="max-width:100%;border-radius:10px;margin:8px 0">` : ""}
+      <small>🕒 ${item.time}</small><br>
+      <button class="delete-btn">🗑 Xóa</button>
+    `;
+    warningList.prepend(div);
+  }
+/* =========================
      2. RATING (LOCALSTORAGE)
   ========================= */
   document.querySelectorAll(".rating").forEach(rating => {
@@ -1324,83 +1441,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
-
   /* =========================
-     3. TÌM CHÓ LẠC
-  ========================= */
-  const LOST_KEY = "lostDogReports";
-  const lostForm = document.getElementById("lostDogForm");
-  const lostList = document.getElementById("lostDogList");
-  let lostData = JSON.parse(localStorage.getItem(LOST_KEY)) || [];
-
-  lostData.forEach(renderLost);
-
-  lostForm?.addEventListener("submit", e => {
-    e.preventDefault();
-    const item = {
-      id: Date.now(),
-      address: address.value.trim(),
-      description: description.value.trim(),
-      time: new Date().toLocaleString()
-    };
-    lostData.unshift(item);
-    localStorage.setItem(LOST_KEY, JSON.stringify(lostData));
-    renderLost(item);
-    lostForm.reset();
-  });
-
-  function renderLost(item) {
-    const div = document.createElement("div");
-    div.className = "rescue-post";
-    div.dataset.id = item.id;
-    div.innerHTML = `
-      <p><strong>📍 Địa chỉ:</strong> ${item.address}</p>
-      <p>${item.description || "Không có mô tả"}</p>
-      <small>🕒 ${item.time}</small><br>
-      <button class="delete-btn">🗑 Xóa</button>
-    `;
-    lostList.prepend(div);
-  }
-
-  /* =========================
-     4. CẢNH BÁO – GIỐNG TÌM CHÓ LẠC
-  ========================= */
-  const WARNING_KEY = "warningReports";
-  const warningForm = document.getElementById("warningForm");
-  const warningList = document.getElementById("warningList");
-  let warningData = JSON.parse(localStorage.getItem(WARNING_KEY)) || [];
-
-  warningData.forEach(renderWarning);
-
-  warningForm?.addEventListener("submit", e => {
-    e.preventDefault();
-    const item = {
-      id: Date.now(),
-      address: warningAddress.value.trim(),
-      description: warningDescription.value.trim(),
-      time: new Date().toLocaleString()
-    };
-    warningData.unshift(item);
-    localStorage.setItem(WARNING_KEY, JSON.stringify(warningData));
-    renderWarning(item);
-    warningForm.reset();
-  });
-
-  function renderWarning(item) {
-    const div = document.createElement("div");
-    div.className = "rescue-post";
-    div.dataset.id = item.id;
-    div.innerHTML = `
-      <p><strong>⚠️ Địa chỉ nghi ngờ:</strong> ${item.address}</p>
-      <p>${item.description || "Không có mô tả"}</p>
-      <small>🕒 ${item.time}</small><br>
-      <button class="delete-btn">🗑 Xóa</button>
-    `;
-    warningList.prepend(div);
-  }
-
-  /* =========================
-     5. TRẠI CỨU HỘ CỘNG ĐỒNG
+     5. TRẠI CỨU HỘ
   ========================= */
   const RESCUE_KEY = "communityRescues";
   const rescueForm = document.getElementById("rescueForm");
@@ -1410,7 +1452,9 @@ document.addEventListener("DOMContentLoaded", () => {
   rescueData.forEach(renderRescue);
 
   rescueForm?.addEventListener("submit", e => {
-    e.preventDefault();
+  e.preventDefault();
+
+  readImage(rescueImage.files[0], imgData => {
     const item = {
       id: Date.now(),
       name: rescueName.value.trim(),
@@ -1418,45 +1462,54 @@ document.addEventListener("DOMContentLoaded", () => {
       desc: rescueDesc.value.trim(),
       fb: rescueFB.value.trim(),
       verified: false,
+      image: imgData,
       time: new Date().toLocaleString()
     };
+
     rescueData.unshift(item);
     localStorage.setItem(RESCUE_KEY, JSON.stringify(rescueData));
     renderRescue(item);
     rescueForm.reset();
   });
+});
+  
 
-  function renderRescue(item) {
-    const div = document.createElement("div");
-    div.className = "rescue-post";
-    div.dataset.id = item.id;
-    div.innerHTML = `
-      <h4>${item.name}</h4>
-      <span class="badge ${item.verified ? "verified" : "unverified"}">
-        ${item.verified ? "✔ Đã xác minh" : "⚠ Chưa xác minh"}
-      </span>
-      <p>📍 ${item.location}</p>
-      <p>${item.desc || "Không có mô tả"}</p>
-      ${item.fb ? `<a href="${item.fb}" target="_blank">Facebook</a>` : ""}
-      <div>
-        <small>🕒 ${item.time}</small><br>
-        <button class="delete-btn">🗑 Xóa</button>
-      </div>
-    `;
-    rescueList.prepend(div);
-  }
+function renderRescue(item) {
+  const div = document.createElement("div");
+  div.className = "rescue-post";
+  div.dataset.id = item.id;
+
+  div.innerHTML = `
+    <h4>${item.name}</h4>
+    <span class="badge ${item.verified ? "verified" : "unverified"}">
+      ${item.verified ? "✔ Đã xác minh" : "⚠ Chưa xác minh"}
+    </span>
+    <p>📍 ${item.location}</p>
+    <p>${item.desc || "Không có mô tả"}</p>
+
+    ${item.image ? `
+      <img src="${item.image}" 
+           style="max-width:100%;border-radius:10px;margin:8px 0">
+    ` : ""}
+
+    ${item.fb ? `<a href="${item.fb}" target="_blank">Facebook</a>` : ""}
+    <small>🕒 ${item.time}</small><br>
+    <button class="delete-btn">🗑 Xóa</button>
+  `;
+  rescueList.prepend(div);
+}
 
   /* =========================
-     6. XÓA CHUNG (CHO MỌI MỤC)
+     6. XÓA VĨNH VIỄN (CHUNG)
   ========================= */
   document.addEventListener("click", e => {
     if (!e.target.classList.contains("delete-btn")) return;
     if (!confirm("Xóa vĩnh viễn mục này?")) return;
 
-    const post = e.target.closest(".rescue-post");
-    if (!post) return;
+    const card = e.target.closest(".rescue-post");
+	if (!card) return;
 
-    const id = post.dataset.id;
+    const id = card.dataset.id;
 
     lostData = lostData.filter(i => i.id != id);
     warningData = warningData.filter(i => i.id != id);
@@ -1466,11 +1519,13 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem(WARNING_KEY, JSON.stringify(warningData));
     localStorage.setItem(RESCUE_KEY, JSON.stringify(rescueData));
 
-    post.remove();
+    card.remove();
   });
 
 });
+
 </script>
+
 
 </body>
 </html>
